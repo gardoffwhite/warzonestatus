@@ -114,9 +114,8 @@ async def update_status(request_id: int = Form(...), status: str = Form(...)):
     message = f"คำขอของ {request['charname']} ({request['userid']}) ถูกอัปเดตสถานะเป็น: {status}"
     send_line_message(ADMIN_USER_ID, message)
 
-    # เปลี่ยน redirect ให้กลับไปหน้า /admin แทน
-    return RedirectResponse(url="/admin", status_code=303)
-
+    # รีเฟรชหน้าผ่าน HTMLResponse
+    return templates.TemplateResponse("admin_dashboard.html", {"request": request, "requests": request_data_store})
 
 
 @app.get("/logout")
