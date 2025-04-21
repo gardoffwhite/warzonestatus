@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+                margin: 20px;
+            }
+
+            h2 {
+                text-align: center;
+                color: #333;
+            }
+
+            .status-message {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #333;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1em;
+                color: #555;
+                margin: 5px 0;
+            }
+
+            a {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                text-decoration: none;
+                color: #007BFF;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>คำขอแก้สเตตัสของ {{ request.charname }} (UserID: {{ request.userid }})</h2>
+            <p>สถานะคำขอ: <strong>{{ request.status }}</strong></p>
+            <p>STR: {{ request.str if request.str else '-' }}</p>
+            <p>DEX: {{ request.dex if request.dex else '-' }}</p>
+            <p>ESP: {{ request.esp if request.esp else '-' }}</p>
+            <p>SPT: {{ request.spt if request.spt else '-' }}</p>
+            <a href="/">กลับไปหน้าหลัก</a>
+        </div>
+    </body>
+</html>
